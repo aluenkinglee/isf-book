@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.apress.isf.groovy.model
 
@@ -8,7 +8,7 @@ package com.apress.isf.groovy.model
  *
  */
 class Type {
-	String name
-	String desc
-	String extension
+    String name
+    String desc
+    String extension
 }
