@@ -11,11 +11,12 @@
 
 *.pydevproject
 .metadata
-.gradle
+gradle/
 bin/
 tmp/
 build/
-
+.idea/
+.iml
 *.tmp
 *.bak
 *.swp
