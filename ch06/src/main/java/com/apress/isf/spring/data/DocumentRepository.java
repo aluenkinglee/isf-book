@@ -4,6 +4,7 @@ import com.apress.isf.model.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DocumentRepository implements DocumentDAO {
@@ -16,6 +17,29 @@ public class DocumentRepository implements DocumentDAO {
 
     public void setDocuments(List<Document> documents) {
         this.documents = documents;
+    }
+
+    private void setDoc(Document doc) {
+        if (documents == null) {
+            documents = new ArrayList<Document>();
+        }
+        this.documents.add(doc);
+    }
+
+    public void setDoc1(Document doc) {
+        setDoc(doc);
+    }
+
+    public void setDoc2(Document doc) {
+        setDoc(doc);
+    }
+
+    public void setDoc3(Document doc) {
+        setDoc(doc);
+    }
+
+    public void setDoc4(Document doc) {
+        setDoc(doc);
     }
 
     public Document[] getAll() {

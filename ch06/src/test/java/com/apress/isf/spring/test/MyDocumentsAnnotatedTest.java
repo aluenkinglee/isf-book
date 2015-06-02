@@ -3,20 +3,17 @@
  */
 package com.apress.isf.spring.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
+import com.apress.isf.model.Document;
+import com.apress.isf.model.Type;
+import com.apress.isf.service.SearchEngine;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.apress.isf.java.model.Document;
-import com.apress.isf.java.model.Type;
-import com.apress.isf.java.service.SearchEngine;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * @author Felipe Gutierrez
