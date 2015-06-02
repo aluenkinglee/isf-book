@@ -15,6 +15,9 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.0'
     compile 'org.springframework:spring-context:4.0.5.RELEASE'
     testCompile 'junit:junit:4.11'
+    // add org.slf4j dependency
+    compile 'org.slf4j:slf4j-log4j12:1.7.2'
+    apply plugin: 'idea'
 }
 
 test {

@@ -8,6 +8,8 @@ import com.apress.isf.java.model.Type;
 import com.apress.isf.java.service.SearchEngine;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -18,7 +20,7 @@ import static org.junit.Assert.*;
  * @author Felipe Gutierrez
  */
 public class MyDocumentsTest {
-
+    private static final Logger log = LoggerFactory.getLogger(MyDocumentsTest.class);
     private ClassPathXmlApplicationContext context;
     private SearchEngine engine;
     private Type webType;
@@ -47,7 +49,7 @@ public class MyDocumentsTest {
         documents = engine.listAll();
         assertNotNull(documents);
         assertTrue(documents.size() == 4);
+        System.out.println("documents.size=" + documents.size());
+        log.info("documents.size=" + documents.size());
     }
-
-
 }
