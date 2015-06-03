@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.apress.isf.spring.annotated.service;
 
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ public class AnnotatedSearchEngine implements SearchEngine {
 	private static final Logger log = LoggerFactory.getLogger(SearchEngineService.class);
 	
 	@Autowired
-	private DocumentDAO documentDAO;
+	DocumentDAO documentDAO;
 	
 	public AnnotatedSearchEngine(){
 		if(log.isDebugEnabled())

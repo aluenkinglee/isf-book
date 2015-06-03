@@ -3,15 +3,11 @@
  */
 package com.apress.isf.java.service;
 
-import java.util.List;
-
 import com.apress.isf.java.model.Document;
 import com.apress.isf.java.model.Type;
 
-/**
- * @author Felipe Gutierrez
- *
- */
+import java.util.List;
+
 public interface DocumentService {
 	public void createNewType(Type type);
 	public void updateType(Type type);

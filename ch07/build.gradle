@@ -1,28 +1,30 @@
 /* Uncomment if this project CH07 need to be compile alone
- apply plugin: 'java'
- apply plugin: 'groovy'
- apply plugin: 'eclipse'
- apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 
- group = 'com.apress.isf'
- version = '1.0'
+group = 'com.apress.isf'
+version = '1.0'
 
- repositories {
-	 mavenCentral()
- }
+repositories {
+    mavenCentral()
+}
 
- dependencies {
-	 compile 'org.codehaus.groovy:groovy-all:2.3.0'
-	 compile 'org.springframework:spring-context:4.0.5.RELEASE'
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.0'
+    compile 'org.springframework:spring-context:4.0.5.RELEASE'
 
-	 testCompile 'junit:junit:4.11'
-	 testCompile 'org.springframework:spring-test:4.0.5.RELEASE'
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.springframework:spring-test:4.0.5.RELEASE'
+    compile 'org.slf4j:slf4j-log4j12:1.7.2'
+    apply plugin: 'idea'
+}
 
- }
 
- test {
-	 testLogging {
-		 events 'started', 'passed'
-	 }
- }
- */
+test {
+    testLogging {
+        events 'started', 'passed'
+    }
+}
+*/
