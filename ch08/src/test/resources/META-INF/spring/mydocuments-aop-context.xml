@@ -16,14 +16,14 @@
         <property name="target" ref="engine"/>
         <property name="interceptorNames">
             <list>
-                <value>caching</value>
-                <!--
-                <value>beforeLogging</value>
-                <value>afterLogging</value>
+                <!--<value>caching</value>-->
+
+                <!--<value>beforeLogging</value>-->
+                <!--<value>afterLogging</value>-->
                 <value>aroundLogging</value>
-                <value>throwsLogging</value>
-                <value>caching</value>
-                -->
+                <!--<value>throwsLogging</value>-->
+                <!--<value>caching</value>-->
+
             </list>
         </property>
     </bean>
