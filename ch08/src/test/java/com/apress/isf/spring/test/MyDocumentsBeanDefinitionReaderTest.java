@@ -1,14 +1,12 @@
 /**
- * 
+ *
  */
 package com.apress.isf.spring.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
+import com.apress.isf.model.Document;
+import com.apress.isf.model.Type;
+import com.apress.isf.service.SearchEngine;
+import com.apress.isf.spring.test.MyDocumentsBeanDefinitionReaderTest.GenericGroovyContextLoader;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,65 +20,63 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AbstractGenericContextLoader;
 
-import com.apress.isf.java.model.Document;
-import com.apress.isf.java.model.Type;
-import com.apress.isf.java.service.SearchEngine;
-import com.apress.isf.spring.test.MyDocumentsBeanDefinitionReaderTest.GenericGroovyContextLoader;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * @author Felipe Gutierrez gradle
  *         -Dtest.single=MyDocumentsBeanDefinitionReaderTest test
- * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value = "classpath:META-INF/spring/mydocuments.groovy", loader = GenericGroovyContextLoader.class)
 public class MyDocumentsBeanDefinitionReaderTest {
 
-	public static class GenericGroovyContextLoader extends
-			AbstractGenericContextLoader {
+    @Autowired
+    private ApplicationContext context;
+    private SearchEngine engine;
+    private Type webType;
 
-		@Override
-		protected BeanDefinitionReader createBeanDefinitionReader(
-				GenericApplicationContext context) {
-			return new GroovyBeanDefinitionReader(context);
-		}
+    @Before
+    public void setup() {
+        context = new GenericGroovyApplicationContext(
+                "META-INF/spring/mydocuments.groovy");
+    }
 
-		@Override
-		protected String getResourceSuffix() {
-			return ".groovy";
-		}
+    @Test
+    public void testWithGroovyAll() {
+        engine = context.getBean(SearchEngine.class);
+        webType = context.getBean("webType", Type.class);
 
-	}
+        List<Document> documents = engine.findByType(webType);
+        assertNotNull(documents);
+        assertTrue(documents.size() == 1);
+        assertEquals(webType.getName(), documents.get(0).getType().getName());
+        assertEquals(webType.getDesc(), documents.get(0).getType().getDesc());
+        assertEquals(webType.getExtension(), documents.get(0).getType()
+                .getExtension());
 
-	@Autowired
-	private ApplicationContext context;
-	private SearchEngine engine;
-	private Type webType;
+        engine = context.getBean(SearchEngine.class);
 
-	@Before
-	public void setup() {
-		context = new GenericGroovyApplicationContext(
-				"META-INF/spring/mydocuments.groovy");
-	}
+        documents = engine.listAll();
+        assertNotNull(documents);
+        assertTrue(documents.size() == 4);
+    }
 
-	@Test
-	public void testWithGroovyAll() {
-		engine = context.getBean(SearchEngine.class);
-		webType = context.getBean("webType", Type.class);
+    public static class GenericGroovyContextLoader extends
+            AbstractGenericContextLoader {
 
-		List<Document> documents = engine.findByType(webType);
-		assertNotNull(documents);
-		assertTrue(documents.size() == 1);
-		assertEquals(webType.getName(), documents.get(0).getType().getName());
-		assertEquals(webType.getDesc(), documents.get(0).getType().getDesc());
-		assertEquals(webType.getExtension(), documents.get(0).getType()
-				.getExtension());
+        @Override
+        protected BeanDefinitionReader createBeanDefinitionReader(
+                GenericApplicationContext context) {
+            return new GroovyBeanDefinitionReader(context);
+        }
 
-		engine = context.getBean(SearchEngine.class);
+        @Override
+        protected String getResourceSuffix() {
+            return ".groovy";
+        }
 
-		documents = engine.listAll();
-		assertNotNull(documents);
-		assertTrue(documents.size() == 4);
-	}
+    }
 
 }
