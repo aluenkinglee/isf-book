@@ -12,7 +12,7 @@
     <!-- AOP -->
     <aop:aspectj-autoproxy/>
 
-    <bean id="engine" class="com.apress.isf.spring.service.SearchEngineService">
+    <bean id="engineProxy" class="com.apress.isf.spring.service.SearchEngineService">
         <property name="documentDAO" ref="documentDAO"/>
     </bean>
 
