@@ -1,4 +1,4 @@
-import com.apress.isf.java.model.Document
+import com.apress.isf.model.Document
 import com.apress.isf.spring.data.DocumentRepository
 import com.apress.isf.spring.data.TypeDataRepository
 import com.apress.isf.spring.service.SearchEngineService
@@ -41,19 +41,19 @@ beans {
         location = "http://www.apress.com/9781430248187"
     }
 
-    webType(com.apress.isf.java.model.Type) {
+    webType(com.apress.isf.model.Type) {
         name = "WEB"
         desc = "Web Link"
         extension = ".url"
     }
 
-    pdfType(com.apress.isf.java.model.Type) {
+    pdfType(com.apress.isf.model.Type) {
         name = "PDF"
         desc = "Portable Document Format"
         extension = ".url"
     }
 
-    noteType(com.apress.isf.java.model.Type) {
+    noteType(com.apress.isf.model.Type) {
         name = "NOTE"
         desc = "Text Notes"
         extension = ".txt"
