@@ -1,4 +1,4 @@
-/* Uncomment if this project CH09 need to be compile alone
+//* Uncomment if this project CH09 need to be compile alone
  apply plugin: 'java'
  apply plugin: 'groovy'
  apply plugin: 'eclipse'
@@ -32,4 +32,3 @@
 		 events 'started', 'passed'
 	 }
  }
- */
